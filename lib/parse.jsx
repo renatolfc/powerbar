@@ -4,6 +4,6 @@ const parse = (data) => {
   } catch (e) {
     return undefined;
   }
-}
+};
 
-export default parse
+export default parse;
