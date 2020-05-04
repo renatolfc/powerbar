@@ -26,7 +26,7 @@ export const render = ({output}) => {
   }
   return (
     <div style={leftSide}>
-			<Desktop output={data.desktops_primary}/>
+      <Desktop output={data.desktops_primary}/>
     </div>
   )
 }
