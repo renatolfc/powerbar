@@ -1,6 +1,7 @@
 import DateTime from './lib/DateTime/index.jsx';
 import Battery from './lib/Battery/index.jsx';
 import Cpu from './lib/Cpu/index.jsx';
+import Volume from './lib/Volume/index.jsx';
 import Memory from './lib/Memory/index.jsx';
 import Hdd from './lib/Hdd/index.jsx';
 import Wifi from './lib/Wifi/index.jsx';
@@ -13,7 +14,6 @@ export const refreshFrequency = 15000
 export const command = './powerbar/status-right.sh'
 
 export const render = ({output}) => {
-  console.log(`Right bar output: ${output}`);
   const data = parse(output);
   if (typeof data === 'undefined') {
     return (
@@ -24,14 +24,15 @@ export const render = ({output}) => {
   }
   return (
     <div style={rightSide}>
-			<Wifi output={data.wifi}/>
-			<Hdd output={data.hdd}/>
-			<Memory output={data.memory}/>
-			<Cpu output={data.cpu}/>
+      <Volume output={data.volume}/>
+      <Wifi output={data.wifi}/>
+      <Hdd output={data.hdd}/>
+      <Memory output={data.memory}/>
+      <Cpu output={data.cpu}/>
       <Battery output={data.battery}/>
       <DateTime output={data.datetime}/>
     </div>
   )
-}
+};
 
-export default null
+export default null;
